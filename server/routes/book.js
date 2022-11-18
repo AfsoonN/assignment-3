@@ -15,7 +15,7 @@ router.get('/', bookController.displayBookList);
 
 /*add operation*/
 /*get route to display add page -- create operation*/
-router.get('/add', bookController.processAddPage);
+router.post('/add', bookController.processAddPage);
     
 /*edit operation*/
 /*get route for displaying edit operation -- update operation*/

@@ -16,7 +16,7 @@ module.exports.displayBookList = (req,res,next)=>{
             //console.log(booklist);
            res.render('book/list',{
                 title:'Books', 
-                Booklist: booklist
+                booklist: booklist
             }) 
         }
     });

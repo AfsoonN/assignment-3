@@ -6,7 +6,7 @@ let bookModel = mongoose.Schema
     author: String,
     published: String,
     description: String,
-    price: Number,
+    price: Number
 },
 {
     collection: "books",

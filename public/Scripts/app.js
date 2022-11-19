@@ -11,7 +11,7 @@
         if (!confirm("are you sure?"))
             {
                 event.preventDefault();
-                window.location.assign('/book-list');
+                window.location.assign('/pony-list');
             }
         });
     }

@@ -5,35 +5,33 @@
     <div class="row">
     <div class="col-md-offset-3 col-md-10">
     <h1><%= title %></h1>
-    <a href="/book-list/add" class="btn btn-primary" role="button">
-        <i class="fas fa-plus-circle"></i> Add a Book </a>
+    <a href="/pony-list/add" class="btn btn-primary" role="button">
+        <i class="fas fa-plus-circle"></i> Add a Pony </a>
         <br>
     <br>
     <table class = "table table-bordered table-striped table-hover">
     <tr class="d-flex">
     <th class ="text-centre col-2">name</th>
-    <th class ="text-centre col-2">author</th>
-    <th class ="text-centre col-3">published</th>
-    <th class ="text-centre col-6">description</th>
-    <th class ="text-centre col-1">price</th>
+    <th class ="text-centre col-2">colour</th>
+    <th class ="text-centre col-2">skill</th>
+    <th class ="text-centre col-1">age</th>
     <th class ="text-centre col-1"></th>
     <th class ="text-centre col-1"></th>
     </tr>
     <!-- repeat template -->
-    <% for(let count= 0; count<booklist.length; count ++) {%>
+    <% for(let count= 0; count<ponylist.length; count ++) {%>
         <tr class="d-flex">
-        <td class="text-centre col-2"><%= booklist[count].name %></td>
-        <td class="text-centre col-2"><%= booklist[count].author %></td>
-        <td class="text-centre col-3"><%= booklist[count].published %></td>
-        <td class="text-centre col-5"><%= booklist[count].description %></td>
-        <td class="text-centre col-1"><%= booklist[count].price %></td>
+        <td class="text-centre col-2"><%= ponylist[count].name %></td>
+        <td class="text-centre col-2"><%= ponylist[count].colour %></td>
+        <td class="text-centre col-2"><%= ponylist[count].skill %></td>
+        <td class="text-centre col-1"><%= ponylist[count].age %></td>
         <td class="text-centre col-1">
-            <a href="/book-list/edit/<%= booklist[count]._id %>"
+            <a href="/pony-list/edit/<%= ponylist[count]._id %>"
             class="btn btn-primary">
             <i class="fas fa-pencil-alt"></i> Edit </a>
             </td>
         <td class="text-centre col-1">
-            <a href="/book-list/delete/<%= booklist[count]._id %>"
+            <a href="/pony-list/delete/<%= ponylist[count]._id %>"
             class="btn btn-danger">
             <i class="fas fa-pencil-alt"></i> Delete </a>
             </td>

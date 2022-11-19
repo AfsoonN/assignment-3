@@ -1,40 +1,39 @@
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose'); // npm i mongoose
-// connect with book model
-let Book = require('../models/book');
+// connect with pony model
+let Pony = require('../models/ponys');
 /* CRUD Operation*/
 
-module.exports.displayBookList = (req,res,next)=>{
-    Book.find((err, booklist)=>{
+module.exports.displayPonyList = (req,res,next)=>{
+    Pony.find((err, ponylist)=>{
         if(err)
         {
             return console.error(err); 
         }
         else
         {
-            //console.log(booklist);
-           res.render('book/list',{
-                title:'Books', 
-                booklist: booklist
+            //console.log(ponylist);
+           res.render('pony/list',{
+                title:'ponys', 
+                ponylist: ponylist
             }) 
         }
     });
 }
 
 module.exports.displayAddPage = (req,res,next)=> {
-    res.render('book/add',{title:'Add Book'})
+    res.render('pony/add',{title:'Add Pony'})
 }
 
 module.exports.processAddPage = (req,res,next)=> {
-    let newBook = Book ({
+    let newPony = Pony ({
      "name":req.body.name,
-     "author":req.body.author,
-     "published":req.body.published,
-     "description": req.body.description,
-     "price":req.body.price
+     "colour":req.body.colour,
+     "skill": req.body.skill,
+     "age":req.body.age
     });
-    Book.create(newBook,(err,Book) => {
+    Pony.create(newPony,(err,Pony) => {
      if(err)
      {
          console.log(err);
@@ -42,7 +41,7 @@ module.exports.processAddPage = (req,res,next)=> {
      }
      else
      {
-         res.redirect('/book-list');
+         res.redirect('/pony-list');
      }
     })
  
@@ -50,7 +49,7 @@ module.exports.processAddPage = (req,res,next)=> {
 
  module.exports.displayEditPage = (req,res,next)=> {
     let id = req.params.id;
-    Book.findById(id,(err,bookToEdit) =>{
+    Pony.findById(id,(err,ponyToEdit) =>{
         if(err)
         {
             console.log(err);
@@ -58,22 +57,21 @@ module.exports.processAddPage = (req,res,next)=> {
         }
         else
         {
-            res.render('book/edit',{title:'Edit Book', book:bookToEdit});
+            res.render('pony/edit',{title:'Edit Pony', pony:ponyToEdit});
         }
     });
 }
 
  module.exports.processEditPage = (req,res,next)=> {
     let id=req.params.id;
-    let updateBook = Book({
+    let updatePony = Pony({
         "_id":id,
         "name":req.body.name,
-        "author":req.body.author,
-        "published":req.body.published,
-        "description": req.body.description,
-        "price":req.body.price
+        "colour":req.body.colour,
+        "skill": req.body.skill,
+        "age":req.body.age
     });
-    Book.updateOne({_id:id},updateBook,(err) =>{
+    Pony.updateOne({_id:id},updatePony,(err) =>{
         if(err)
         {
             console.log(err);
@@ -81,14 +79,14 @@ module.exports.processAddPage = (req,res,next)=> {
         }
         else
         {
-            res.redirect('/book-list');
+            res.redirect('/pony-list');
         }
     });
 }
 
 module.exports.performDelete = (req,res,next)=> {
     let id =req.params.id;
-    Book.deleteOne({_id:id},(err)=>{
+    Pony.deleteOne({_id:id},(err)=>{
         if(err)
         {
             console.log(err);
@@ -96,7 +94,7 @@ module.exports.performDelete = (req,res,next)=> {
         }
         else
         {
-            res.redirect('/book-list');
+            res.redirect('/pony-list');
         }
     });
 }

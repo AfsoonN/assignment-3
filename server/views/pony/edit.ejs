@@ -1,0 +1,66 @@
+<%- include ('../partials/header.ejs') %>
+<%- include ('../partials/main_nav.ejs') %>
+
+<!-- Content for edit page-->
+<div class="container">
+    <div class="row">
+    <div class="col-md-offset-3 col-md-6">
+    <h1><%= title %></h1>
+    <form class="form" method="post">
+    
+    <div class="form-group">
+    <label for="ponyNameTextField">Pony Name</label>
+    <input type="text" class="form-control"
+    id="ponyNameTextField"
+    placeholder="Enter the Ponys name"
+    name="ponyName" 
+    value="<%= pony.name%>"
+    required>
+    </div>
+
+<div class="form-group">
+    <label for="colourTextField">Colour</label>
+    <input type="text" class="form-control"
+    id="colourTextField"
+    placeholder="Enter the colour of your pony"
+    name="colour" 
+    value="<%= pony.colour%>"
+    required>
+    </div>
+
+
+<div class="form-group">
+    <label for="skillTextField">Skill</label>
+    <textarea type="text" class="form-control"
+    id="skillTextField"
+    placeholder="Enter the skill of your pony"
+    name="skill" required>
+    <%= pony.description%>"
+    </textarea>
+    </div>
+
+<div class="form-group">
+    <label for="ageTextField">Age</label>
+    <input type="number" class="form-control"
+    id="ageTextField"
+    placeholder="Enter the age of your pony"
+    name="age" 
+    value="<%= book.age%>"
+    required>
+    </div>
+
+<br>
+<button class="btn-btn-primary" type="submit btn">
+<i class="fas fa-edit"></i> Submit
+</button>
+
+<a href="/pony-list" class="btn btn-warning">
+<i class="fas fa-undo"></i> Cancel</a>
+</form>
+    </div>
+    </div>
+    </div>
+
+
+<%- include ('../partials/bottom_nav.ejs') %>
+<%- include ('../partials/footer.ejs')%>

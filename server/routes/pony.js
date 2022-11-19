@@ -15,6 +15,7 @@ router.get('/', ponyController.displayPonyList);
 
 /*add operation*/
 /*get route to display add page -- create operation*/
+router.get('/add', ponyController.displayAddPage);
 router.post('/add', ponyController.processAddPage);
     
 /*edit operation*/
